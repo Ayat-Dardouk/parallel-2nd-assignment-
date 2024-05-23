@@ -1,0 +1,28 @@
+1) i wrote a serial code to find a prime numbers up to certain (prime) number
+then i used mpi library to paralellize the code ,next i made some edit to write the cyclic mpi code,finall i create the make file to compile the  all codes.
+
+2) because logically to check if a number is prime, you only need to test divisors up to its square root. If it has a larger divisor, it must also have a smaller one. This method is both correct and efficient.
+
+3) mpi psudo code
+rank ,size ,number,range=number/size
+ start = rank * range;
+ end = (rank == size - 1) ? n : start + range;
+for (long i = start; i <= end; i++) {
+        if (isPrime(i)) {
+            primes.push_back(i);
+        }
+    }
+
+
+4)rank ,size ,number,
+range = (n + 1) / size;
+start =3+rank*2
+ end = n-(2*rank);
+
+for(int i=start;i<end;i+=(size*2))
+    {
+    if (isPrime(i)) {
+            primes.push_back(i);
+        }
+
+
